@@ -16,7 +16,7 @@ const options = program.opts()
 
 switch (options.action) {
     case "getList":
-        listContacts().then(result => console.log(result));
+        listContacts().then(result => console.table(result));
         break;
     case "getById":
         if (options.id) {
@@ -39,6 +39,8 @@ switch (options.action) {
         }
         else console.log('такого контакта не существует!');
         break
+    default:
+        console.warn('\x1B[31m Unknown action type!');
 
 }
 
